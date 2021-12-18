@@ -13,6 +13,15 @@
 		229D6E61276C0CED00583DB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D6E5F276C0CED00583DB5 /* Main.storyboard */; };
 		229D6E63276C0CEE00583DB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D6E62276C0CEE00583DB5 /* Assets.xcassets */; };
 		229D6E66276C0CEE00583DB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D6E64276C0CEE00583DB5 /* LaunchScreen.storyboard */; };
+		229D6E72276C120600583DB5 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D6E71276C120600583DB5 /* Types.swift */; };
+		229D6E74276C124800583DB5 /* PokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D6E73276C124800583DB5 /* PokemonType.swift */; };
+		229D6E76276C12E900583DB5 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D6E75276C12E900583DB5 /* Species.swift */; };
+		229D6E78276C133900583DB5 /* Sprites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D6E77276C133900583DB5 /* Sprites.swift */; };
+		229D6E7A276C136A00583DB5 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D6E79276C136A00583DB5 /* Pokemon.swift */; };
+		229D6E7C276C2BA900583DB5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D6E7B276C2BA900583DB5 /* DetailViewController.swift */; };
+		22D97E9F276C71530029F2B9 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D97E9E276C71530029F2B9 /* Effects.swift */; };
+		22D97EA1276C77930029F2B9 /* Relations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D97EA0276C77930029F2B9 /* Relations.swift */; };
+		22FC651D276C600800A7A526 /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC651C276C600800A7A526 /* TypesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,15 @@
 		229D6E62276C0CEE00583DB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		229D6E65276C0CEE00583DB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		229D6E67276C0CEE00583DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		229D6E71276C120600583DB5 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		229D6E73276C124800583DB5 /* PokemonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonType.swift; sourceTree = "<group>"; };
+		229D6E75276C12E900583DB5 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		229D6E77276C133900583DB5 /* Sprites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprites.swift; sourceTree = "<group>"; };
+		229D6E79276C136A00583DB5 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		229D6E7B276C2BA900583DB5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		22D97E9E276C71530029F2B9 /* Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
+		22D97EA0276C77930029F2B9 /* Relations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relations.swift; sourceTree = "<group>"; };
+		22FC651C276C600800A7A526 /* TypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +76,38 @@
 			children = (
 				229D6E59276C0CED00583DB5 /* AppDelegate.swift */,
 				229D6E5B276C0CED00583DB5 /* SceneDelegate.swift */,
-				229D6E5D276C0CED00583DB5 /* ViewController.swift */,
+				22D97EA2276DA56D0029F2B9 /* Models */,
+				22D97EA3276DA57E0029F2B9 /* Controllers */,
 				229D6E5F276C0CED00583DB5 /* Main.storyboard */,
 				229D6E62276C0CEE00583DB5 /* Assets.xcassets */,
 				229D6E64276C0CEE00583DB5 /* LaunchScreen.storyboard */,
 				229D6E67276C0CEE00583DB5 /* Info.plist */,
 			);
 			path = "Pokemon Assistant";
+			sourceTree = "<group>";
+		};
+		22D97EA2276DA56D0029F2B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				229D6E79276C136A00583DB5 /* Pokemon.swift */,
+				229D6E71276C120600583DB5 /* Types.swift */,
+				22D97E9E276C71530029F2B9 /* Effects.swift */,
+				22D97EA0276C77930029F2B9 /* Relations.swift */,
+				229D6E73276C124800583DB5 /* PokemonType.swift */,
+				229D6E75276C12E900583DB5 /* Species.swift */,
+				229D6E77276C133900583DB5 /* Sprites.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		22D97EA3276DA57E0029F2B9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				229D6E7B276C2BA900583DB5 /* DetailViewController.swift */,
+				229D6E5D276C0CED00583DB5 /* ViewController.swift */,
+				22FC651C276C600800A7A526 /* TypesViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +181,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229D6E7C276C2BA900583DB5 /* DetailViewController.swift in Sources */,
+				229D6E74276C124800583DB5 /* PokemonType.swift in Sources */,
+				22FC651D276C600800A7A526 /* TypesViewController.swift in Sources */,
+				229D6E7A276C136A00583DB5 /* Pokemon.swift in Sources */,
+				22D97E9F276C71530029F2B9 /* Effects.swift in Sources */,
 				229D6E5E276C0CED00583DB5 /* ViewController.swift in Sources */,
+				229D6E78276C133900583DB5 /* Sprites.swift in Sources */,
+				22D97EA1276C77930029F2B9 /* Relations.swift in Sources */,
 				229D6E5A276C0CED00583DB5 /* AppDelegate.swift in Sources */,
 				229D6E5C276C0CED00583DB5 /* SceneDelegate.swift in Sources */,
+				229D6E76276C12E900583DB5 /* Species.swift in Sources */,
+				229D6E72276C120600583DB5 /* Types.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
