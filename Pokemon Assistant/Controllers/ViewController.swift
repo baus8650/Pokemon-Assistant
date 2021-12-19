@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var pokeSearch: String?
     
     @IBOutlet var searchField: UITextField!
+    @IBOutlet var searchType: UITextField!
     
     @IBAction func searchTapped(_ sender: UIButton) {
 
@@ -20,12 +21,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Search"
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SearchToDetail" {
             let vc = segue.destination as! DetailViewController
             vc.pokeSearch = searchField.text?.lowercased()
+        }
+        if segue.identifier == "TypeToType" {
+            let vc = segue.destination as! TypesViewController
+            vc.type = searchType.text?.lowercased()
         }
     }
     
