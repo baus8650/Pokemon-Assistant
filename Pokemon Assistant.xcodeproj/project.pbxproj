@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		229724A227705BA8002B050D /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 229724A127705BA8002B050D /* Charts */; };
+		229724A827710792002B050D /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229724A727710792002B050D /* Stat.swift */; };
 		229D6E5A276C0CED00583DB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D6E59276C0CED00583DB5 /* AppDelegate.swift */; };
 		229D6E5C276C0CED00583DB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D6E5B276C0CED00583DB5 /* SceneDelegate.swift */; };
 		229D6E5E276C0CED00583DB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D6E5D276C0CED00583DB5 /* ViewController.swift */; };
@@ -26,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		229724A727710792002B050D /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 		229D6E56276C0CED00583DB5 /* Pokemon Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokemon Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		229D6E59276C0CED00583DB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		229D6E5B276C0CED00583DB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22EDB9262770011D00A0C1F0 /* ColorKit in Frameworks */,
+				229724A227705BA8002B050D /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +104,7 @@
 				229D6E73276C124800583DB5 /* PokemonType.swift */,
 				229D6E75276C12E900583DB5 /* Species.swift */,
 				229D6E77276C133900583DB5 /* Sprites.swift */,
+				229724A727710792002B050D /* Stat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 			name = "Pokemon Assistant";
 			packageProductDependencies = (
 				22EDB9252770011D00A0C1F0 /* ColorKit */,
+				229724A127705BA8002B050D /* Charts */,
 			);
 			productName = "Pokemon Assistant";
 			productReference = 229D6E56276C0CED00583DB5 /* Pokemon Assistant.app */;
@@ -163,6 +169,7 @@
 			mainGroup = 229D6E4D276C0CED00583DB5;
 			packageReferences = (
 				22EDB9242770011D00A0C1F0 /* XCRemoteSwiftPackageReference "ColorKit" */,
+				229724A027705BA8002B050D /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 229D6E57276C0CED00583DB5 /* Products */;
 			projectDirPath = "";
@@ -191,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229724A827710792002B050D /* Stat.swift in Sources */,
 				229D6E7C276C2BA900583DB5 /* DetailViewController.swift in Sources */,
 				229D6E74276C124800583DB5 /* PokemonType.swift in Sources */,
 				22FC651D276C600800A7A526 /* TypesViewController.swift in Sources */,
@@ -426,6 +434,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		229724A027705BA8002B050D /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		22EDB9242770011D00A0C1F0 /* XCRemoteSwiftPackageReference "ColorKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Boris-Em/ColorKit.git";
@@ -437,6 +453,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		229724A127705BA8002B050D /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 229724A027705BA8002B050D /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
 		22EDB9252770011D00A0C1F0 /* ColorKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 22EDB9242770011D00A0C1F0 /* XCRemoteSwiftPackageReference "ColorKit" */;

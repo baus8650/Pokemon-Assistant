@@ -12,5 +12,6 @@ struct Pokemon: Codable {
     var species: Species
     var types: [Types]
     var sprites: Sprites
+    var stats: [Stat]
 //    var sprites: Sprites
 }

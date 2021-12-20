@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ColorKit
 
 class TypesViewController: UIViewController {
     
@@ -18,7 +19,7 @@ class TypesViewController: UIViewController {
     var noEffect: [PokemonType]?
     var tableData = [[PokemonType]]()
     
-    var color = UIColor(named: "default")
+    var color: UIColor?
 
     var sections = [String]() 
     
@@ -26,13 +27,15 @@ class TypesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = false
         effectTable.dataSource = self
         effectTable.delegate = self
-        
+        navigationController?.navigationBar.prefersLargeTitles = false
         title = type!.capitalized
         effectTable.backgroundColor = color
         view.backgroundColor = color
         
+        effectTable.reloadData()
         performSelector(inBackground: #selector(fetchJSON), with: nil)
     }
     
@@ -62,9 +65,12 @@ class TypesViewController: UIViewController {
             tableData = [weakTo!, strongAgainst!, halfResistant!, halfEffective!, fullyResistant!, noEffect!]
             sections = ["Weak To", "Strong Against", "Half Resistant To", "Half Effective To", "Fully Resistant To", "No Effect"]
             DispatchQueue.main.async { [self] in
-
+                let appearance = UINavigationBarAppearance()
                 effectTable.reloadData()
-
+                appearance.titleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
+                appearance.largeTitleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
+                self.navigationController?.navigationBar.tintColor = color?.complementaryColor
+                navigationItem.standardAppearance = appearance
             }
         }
         
@@ -89,6 +95,24 @@ extension TypesViewController: UITableViewDelegate, UITableViewDataSource {
         return sections[section]
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        header.contentView.backgroundColor = color
+        
+        switch color?.contrastRatio(with: (UIColor(named: "Color")!)) {
+        case .acceptable:
+            header.textLabel?.textColor = UIColor(named: "Color")
+        case .acceptableForLargeText:
+            header.textLabel?.textColor = UIColor(named: "Color")
+        case .low:
+            header.textLabel?.textColor = color?.complementaryColor
+            
+        default:
+            header.textLabel?.textColor = UIColor(named: "default")
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return tableData[section].count
@@ -96,8 +120,21 @@ extension TypesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Relations", for: indexPath)
-        var typeName = tableData[indexPath.section][indexPath.row]
+        let typeName = tableData[indexPath.section][indexPath.row]
         cell.textLabel?.text = typeName.name.capitalized
+        
+        switch color?.contrastRatio(with: (UIColor(named: "Color")!)) {
+        case .acceptable:
+            cell.textLabel?.textColor = UIColor(named: "Color")
+        case .acceptableForLargeText:
+            cell.textLabel?.textColor = UIColor(named: "Color")
+        case .low:
+            cell.textLabel?.textColor = color?.complementaryColor
+            tableView.separatorColor = color?.complementaryColor
+            
+        default:
+            cell.textLabel?.textColor = UIColor(named: "default")
+        }
         
         return cell
     }
