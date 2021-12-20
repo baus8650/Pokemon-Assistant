@@ -17,6 +17,8 @@ class TypesViewController: UIViewController {
     var fullyResistant: [PokemonType]?
     var noEffect: [PokemonType]?
     var tableData = [[PokemonType]]()
+    
+    var color = UIColor(named: "default")
 
     var sections = [String]() 
     
@@ -28,6 +30,8 @@ class TypesViewController: UIViewController {
         effectTable.delegate = self
         
         title = type!.capitalized
+        effectTable.backgroundColor = color
+        view.backgroundColor = color
         
         performSelector(inBackground: #selector(fetchJSON), with: nil)
     }

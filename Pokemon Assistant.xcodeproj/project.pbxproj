@@ -21,6 +21,7 @@
 		229D6E7C276C2BA900583DB5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229D6E7B276C2BA900583DB5 /* DetailViewController.swift */; };
 		22D97E9F276C71530029F2B9 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D97E9E276C71530029F2B9 /* Effects.swift */; };
 		22D97EA1276C77930029F2B9 /* Relations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D97EA0276C77930029F2B9 /* Relations.swift */; };
+		22EDB9262770011D00A0C1F0 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22EDB9252770011D00A0C1F0 /* ColorKit */; };
 		22FC651D276C600800A7A526 /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC651C276C600800A7A526 /* TypesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EDB9262770011D00A0C1F0 /* ColorKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +130,9 @@
 			dependencies = (
 			);
 			name = "Pokemon Assistant";
+			packageProductDependencies = (
+				22EDB9252770011D00A0C1F0 /* ColorKit */,
+			);
 			productName = "Pokemon Assistant";
 			productReference = 229D6E56276C0CED00583DB5 /* Pokemon Assistant.app */;
 			productType = "com.apple.product-type.application";
@@ -156,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 229D6E4D276C0CED00583DB5;
+			packageReferences = (
+				22EDB9242770011D00A0C1F0 /* XCRemoteSwiftPackageReference "ColorKit" */,
+			);
 			productRefGroup = 229D6E57276C0CED00583DB5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -416,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22EDB9242770011D00A0C1F0 /* XCRemoteSwiftPackageReference "ColorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Boris-Em/ColorKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22EDB9252770011D00A0C1F0 /* ColorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22EDB9242770011D00A0C1F0 /* XCRemoteSwiftPackageReference "ColorKit" */;
+			productName = ColorKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 229D6E4E276C0CED00583DB5 /* Project object */;
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ColorKit
 
 class DetailViewController: UIViewController {
     
@@ -14,6 +15,8 @@ class DetailViewController: UIViewController {
     var types: [Types]?
     var sprites: Sprites?
     var pokeSearch: String?
+    
+    var color: UIColor?
     
     var typeArray = [String]()
     
@@ -59,8 +62,17 @@ class DetailViewController: UIViewController {
                 return
             }
             if let frontData = try? Data(contentsOf: urlFront) {
+                let domColors = try? UIImage(data: frontData)?.dominantColors()
                 DispatchQueue.main.async { [self] in
                     frontImage.image = UIImage(data: frontData)
+                    
+                    color = UIColor(red: CIColor(cgColor: (domColors?[0].cgColor)!).red, green: CIColor(cgColor: (domColors?[0].cgColor)!).green, blue: CIColor(cgColor: (domColors?[0].cgColor)!).blue, alpha: 0.8)
+                    
+                    
+                    
+                    view.backgroundColor =  color
+                    typeTable.backgroundColor = color
+                    
                 }
             }
             
@@ -86,7 +98,7 @@ class DetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "DetailToType" {
+        if segue.identifier == "DetailToType" {
             guard let vc = segue.destination as? TypesViewController,
                   let index = typeTable.indexPathForSelectedRow?.row
             else {
@@ -104,7 +116,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return typeArray.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCell", for: indexPath)
         let type = typeArray[indexPath.row]
@@ -115,7 +127,10 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TypesController") as? TypesViewController
         vc!.type = typeArray[indexPath.row]
-//        vc!.view.backgroundColor = .black
+        vc!.color = color
+        vc!.view.backgroundColor = color
+        //        vc!.view.backgroundColor = .black
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
+
