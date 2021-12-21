@@ -34,7 +34,6 @@ class TypesViewController: UIViewController {
         title = type!.capitalized
         effectTable.backgroundColor = color
         view.backgroundColor = color
-        
         effectTable.reloadData()
         performSelector(inBackground: #selector(fetchJSON), with: nil)
     }
@@ -73,7 +72,6 @@ class TypesViewController: UIViewController {
                 navigationItem.standardAppearance = appearance
             }
         }
-        
         
     }
     
@@ -114,7 +112,6 @@ extension TypesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return tableData[section].count
     }
     
