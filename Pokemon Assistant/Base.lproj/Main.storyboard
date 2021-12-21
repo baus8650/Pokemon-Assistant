@@ -17,27 +17,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Ess-s5-qAR">
+                                <rect key="frame" x="-3.5" y="0.0" width="421" height="896"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="896" id="5ya-Fi-vDn"/>
+                                    <constraint firstAttribute="width" constant="421" id="Z1V-EZ-8WE"/>
+                                </constraints>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Pokémon name or number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SdV-9h-KxZ">
-                                <rect key="frame" x="89" y="135" width="236" height="34"/>
+                                <rect key="frame" x="89" y="193" width="236" height="34"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReP-Mf-T1h">
-                                <rect key="frame" x="140.5" y="177" width="133" height="31"/>
+                                <rect key="frame" x="140.5" y="235" width="133" height="31"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Search Pokemon"/>
                                 <connections>
-                                    <action selector="searchTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tag-pa-Ose"/>
                                     <segue destination="Aqy-lz-BoB" kind="show" identifier="SearchToDetail" id="TAV-Lf-8hk"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FFY-hu-Fb6">
-                                <rect key="frame" x="143.5" y="274" width="127.5" height="34"/>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FFY-hu-Fb6">
+                                <rect key="frame" x="143.5" y="283" width="127.5" height="34"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hv3-n0-W6H">
-                                <rect key="frame" x="155" y="316" width="104.5" height="31"/>
+                                <rect key="frame" x="155" y="325" width="104.5" height="31"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Search Type"/>
                                 <connections>
@@ -48,14 +58,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="SdV-9h-KxZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="47" id="2WO-WX-HXl"/>
-                            <constraint firstItem="FFY-hu-Fb6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3C9-C7-Ilf"/>
-                            <constraint firstItem="hv3-n0-W6H" firstAttribute="top" secondItem="FFY-hu-Fb6" secondAttribute="bottom" constant="8" symbolic="YES" id="BiF-UK-kU0"/>
-                            <constraint firstItem="hv3-n0-W6H" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HrE-ib-E2V"/>
-                            <constraint firstItem="ReP-Mf-T1h" firstAttribute="top" secondItem="SdV-9h-KxZ" secondAttribute="bottom" constant="8" symbolic="YES" id="KAt-iC-Pzm"/>
-                            <constraint firstItem="ReP-Mf-T1h" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="and-SU-jZZ"/>
-                            <constraint firstItem="FFY-hu-Fb6" firstAttribute="top" secondItem="ReP-Mf-T1h" secondAttribute="bottom" constant="66" id="mHI-Wd-W3a"/>
-                            <constraint firstItem="SdV-9h-KxZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="p06-Ce-BJi"/>
+                            <constraint firstItem="FFY-hu-Fb6" firstAttribute="top" secondItem="ReP-Mf-T1h" secondAttribute="bottom" constant="17" id="4mb-9T-Zjv"/>
+                            <constraint firstItem="FFY-hu-Fb6" firstAttribute="centerX" secondItem="ReP-Mf-T1h" secondAttribute="centerX" id="CNs-8x-8qM"/>
+                            <constraint firstItem="SdV-9h-KxZ" firstAttribute="centerX" secondItem="Ess-s5-qAR" secondAttribute="centerX" id="Hu2-Wl-Z47"/>
+                            <constraint firstItem="ReP-Mf-T1h" firstAttribute="top" secondItem="SdV-9h-KxZ" secondAttribute="bottom" constant="8" symbolic="YES" id="NQR-fG-BLf"/>
+                            <constraint firstItem="Ess-s5-qAR" firstAttribute="top" secondItem="SdV-9h-KxZ" secondAttribute="bottom" constant="-227" id="NiS-zY-uDW"/>
+                            <constraint firstItem="hv3-n0-W6H" firstAttribute="centerX" secondItem="FFY-hu-Fb6" secondAttribute="centerX" id="PDV-yq-ECT"/>
+                            <constraint firstItem="Ess-s5-qAR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yfg-Lj-UYI"/>
+                            <constraint firstItem="ReP-Mf-T1h" firstAttribute="centerX" secondItem="SdV-9h-KxZ" secondAttribute="centerX" id="e6J-wJ-mzr"/>
+                            <constraint firstItem="Ess-s5-qAR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fzx-vA-1vC"/>
+                            <constraint firstItem="hv3-n0-W6H" firstAttribute="top" secondItem="FFY-hu-Fb6" secondAttribute="bottom" constant="8" symbolic="YES" id="k8I-an-cdI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5vP-pl-i0S"/>
@@ -66,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2023" y="66"/>
+            <point key="canvasLocation" x="2021.7391304347827" y="65.625"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="mq6-V7-eUj">
@@ -395,9 +407,13 @@
         <segue reference="lnT-Iw-a1M"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="background" width="834" height="1194"/>
         <namedColor name="Color">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

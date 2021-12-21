@@ -8,22 +8,20 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     var pokeSearch: String?
     
     @IBOutlet var searchField: UITextField!
     @IBOutlet var searchType: UITextField!
-    
-    @IBAction func searchTapped(_ sender: UIButton) {
 
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
-//        DispatchQueue.main.async { self.navigationController?.navigationItem.title = "Search" }
+
+        searchField.delegate = self
+        searchType.delegate = self
+        
         self.navigationItem.title = "Search"
         
         let appearance = UINavigationBarAppearance()
@@ -31,29 +29,36 @@ class ViewController: UIViewController {
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
 
         navigationItem.standardAppearance = appearance
-        navigationItem.scrollEdgeAppearance = appearance
-        
-        
+    
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 0 {
+            performSegue(withIdentifier: "SearchToDetail", sender: self)
+        } else if textField.tag == 1 {
+            performSegue(withIdentifier: "TypeToType", sender: self)
+        }
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
         self.navigationItem.title = "Search"
+        searchType.text = ""
+        searchField.text = ""
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SearchToDetail" {
             self.navigationItem.title = "Search"
-            
             let vc = segue.destination as! DetailViewController
             vc.pokeSearch = searchField.text?.lowercased()
         }
         if segue.identifier == "TypeToType" {
             self.navigationItem.title = "Search"
-            
             let vc = segue.destination as! TypesViewController
             vc.type = searchType.text?.lowercased()
             let type = searchType.text!
+            navigationController?.isNavigationBarHidden = false
             switch type.lowercased() {
             case "normal":
                 vc.view.backgroundColor = #colorLiteral(red: 0.6666682363, green: 0.666665554, blue: 0.6016612053, alpha: 1)

@@ -38,20 +38,13 @@ class DetailViewController: UIViewController {
     @IBOutlet var spAtkLabel: UILabel!
     @IBOutlet var spDefLabel: UILabel!
     @IBOutlet var speedLabel: UILabel!
-    
     @IBOutlet var statView: UIView!
-    
-    var contrastRatio: UIColor.ContrastRatioResult?
-    
-    var color: UIColor?
-    
-    var typeArray = [String]()
-    
     @IBOutlet weak var typeTable: UITableView!
-    
     @IBOutlet weak var frontImage: UIImageView!
     
-    
+    var contrastRatio: UIColor.ContrastRatioResult?
+    var color: UIColor?
+    var typeArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,10 +52,7 @@ class DetailViewController: UIViewController {
         typeTable.dataSource = self
         navigationController?.navigationBar.prefersLargeTitles = false
         performSelector(inBackground: #selector(fetchJSON), with: nil)
-        
         navigationController?.isNavigationBarHidden = false
-        
-        
     }
     
     @objc func fetchJSON() {
@@ -257,10 +247,6 @@ class DetailViewController: UIViewController {
                 self.title = self.pokemon!.species.name.capitalized
                 self.typeTable.reloadData()
             }
-            DispatchQueue.main.async { [self] in
-                typeTable.reloadData()
-                
-            }
         }
         
     }
@@ -282,7 +268,6 @@ class DetailViewController: UIViewController {
             vc.type = typeArray[index]
         }
     }
-    
     
 }
 
@@ -316,7 +301,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         vc!.type = typeArray[indexPath.row]
         vc!.color = color
         vc!.view.backgroundColor = color
-        //        vc!.view.backgroundColor = .black
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }
