@@ -26,8 +26,14 @@ class PokemonViewController: UITableViewController {
         print("FROM POKE PAGE", type)
         performSelector(inBackground: #selector(fetchJSON), with: nil)
         self.clearsSelectionOnViewWillAppear = true
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(goHome))
     }
 
+    @objc func goHome() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     @objc func fetchJSON() {
         let urlString: String
         urlString = "https://pokeapi.co/api/v2/type/\(type! ?? "normal")"
@@ -89,6 +95,17 @@ class PokemonViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailView") as? DetailViewController
+        let name = attackPokemon[indexPath.row]
+        print(name)
+        vc!.pokeSearch = name.pokemon.name?.lowercased()
+//
+        vc!.color = color
+        vc!.view.backgroundColor = color
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 
 

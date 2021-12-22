@@ -56,6 +56,12 @@ class DetailViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         performSelector(inBackground: #selector(fetchJSON), with: nil)
         navigationController?.isNavigationBarHidden = false
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(goHome))
+    }
+    
+    @objc func goHome() {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func fetchJSON() {

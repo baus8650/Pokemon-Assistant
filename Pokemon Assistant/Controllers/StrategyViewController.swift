@@ -50,8 +50,12 @@ class StrategyViewController: UITableViewController {
         title = "Attacking Strategy"
         performSelector(inBackground: #selector(fetchJSON), with: nil)
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(goHome))
     }
     
+    @objc func goHome() {
+        navigationController?.popToRootViewController(animated: true)
+    }
     
     @objc func fetchJSON() {
         if type!.count == 2 {

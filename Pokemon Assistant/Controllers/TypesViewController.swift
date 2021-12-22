@@ -40,6 +40,12 @@ class TypesViewController: UIViewController {
         effectTable.reloadData()
         performSelector(inBackground: #selector(fetchJSON), with: nil)
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(goHome))
+        
+    }
+    
+    @objc func goHome() {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func fetchJSON() {
