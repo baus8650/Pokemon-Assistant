@@ -83,7 +83,7 @@ class DetailViewController: UIViewController {
         let decoder = JSONDecoder()
         
         if let jsonPokemon = try? decoder.decode(Pokemon.self, from: json) {
-            print("DETAIL PARSING: ",jsonPokemon)
+            
             species = jsonPokemon.species
             types = jsonPokemon.types
             sprites = jsonPokemon.sprites
@@ -280,7 +280,7 @@ class DetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailToType" {
 //            title = "Search"
-            print("DID WE GET HERE INSTEAD?")
+            
             guard let vc = segue.destination as? TypesViewController,
                   let index = typeTable.indexPathForSelectedRow?.row
             else {
@@ -328,7 +328,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         vc!.type = typeArray[indexPath.row]
         vc!.color = color
         vc!.view.backgroundColor = color
-        print("DID WE GET A SEGUE")
+        
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

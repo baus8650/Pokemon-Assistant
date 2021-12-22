@@ -23,7 +23,6 @@ class PokemonViewController: UITableViewController {
         title = "\(type!.capitalized) Type Pokemon"
         tableView.backgroundColor = color
         view.backgroundColor = color
-        print("FROM POKE PAGE", type)
         performSelector(inBackground: #selector(fetchJSON), with: nil)
         self.clearsSelectionOnViewWillAppear = true
         
@@ -36,12 +35,12 @@ class PokemonViewController: UITableViewController {
     
     @objc func fetchJSON() {
         let urlString: String
-        urlString = "https://pokeapi.co/api/v2/type/\(type! ?? "normal")"
-        print("STRING STRING: ",urlString)
+        urlString = "https://pokeapi.co/api/v2/type/\(type!)"
+        
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
                 parse(json: data)
-                print("PARSING FROM OBJC")
+                
                 return
             }
         }
@@ -50,12 +49,12 @@ class PokemonViewController: UITableViewController {
     
     func parse(json: Data) {
         let decoder = JSONDecoder()
-        print("HERE'S DECODER")
+        
         if let jsonType = try? decoder.decode(PokemonStrategy.self, from: json) {
-            print("IT WORKED",jsonType.pokemon)
+            
             attackPokemon = jsonType.pokemon
-            print("COUNT", attackPokemon.count)
-//            print("TESTING: ", attackPokemon)
+            
+
             DispatchQueue.main.async { [self] in
                 let appearance = UINavigationBarAppearance()
 
@@ -100,7 +99,7 @@ class PokemonViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailView") as? DetailViewController
         let name = attackPokemon[indexPath.row]
-        print(name)
+        
         vc!.pokeSearch = name.pokemon.name?.lowercased()
 //
         vc!.color = color

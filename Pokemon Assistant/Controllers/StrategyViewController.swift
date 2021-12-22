@@ -269,7 +269,7 @@ class StrategyViewController: UITableViewController {
                     }
                 default:
                     for t in tableData2[i] {
-                        defTypes.merging([t.name: 1]) { (old, new) in
+                        defTypes.merge([t.name: 1]) { (old, new) in
                             old * new
                         }
                     }
@@ -308,7 +308,7 @@ class StrategyViewController: UITableViewController {
                 dealsZero.append(i.key)
             }
         }
-        print(offTypes)
+        
         defCalculated = [fourTimes, twoTimes, dealsTwoTimes, half, dealsHalf, zero, dealsZero, neutral]
         tableSections = ["Receives 4x Damage From", "Receives 2x Damage From","Deals 2x Damage To", "Receives 1/2 Damage From","Deals 1/2 Damage To", "Receives 0 Damage From", "Deals 0 Damage To", "Neutral"]
         DispatchQueue.main.async {
@@ -442,7 +442,7 @@ class StrategyViewController: UITableViewController {
                 dealsZero.append(i.key)
             }
         }
-        print(offTypes)
+        
         defCalculated = [fourTimes, twoTimes, dealsTwoTimes, half, dealsHalf, zero, dealsZero, neutral]
         tableSections = ["Receives 4x Damage From", "Receives 2x Damage From","Deals 2x Damage To", "Receives 1/2 Damage From","Deals 1/2 Damage To", "Receives 0 Damage From", "Deals 0 Damage To", "Neutral"]
         DispatchQueue.main.async {
