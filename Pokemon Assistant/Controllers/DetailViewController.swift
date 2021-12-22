@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     var sprites: Sprites?
     var pokeSearch: String?
     var stats: [Stat]?
+    var id: Int?
     
     @IBOutlet var hpSlider: UISlider!
     @IBOutlet var attackSlider: UISlider!
@@ -42,6 +43,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var typeTable: UITableView!
     @IBOutlet weak var frontImage: UIImageView!
     
+    @IBOutlet var strategyButton: UIButton!
+    @IBOutlet var numberLabel: UILabel!
     var contrastRatio: UIColor.ContrastRatioResult?
     var color: UIColor?
     var typeArray = [String]()
@@ -74,10 +77,12 @@ class DetailViewController: UIViewController {
         let decoder = JSONDecoder()
         
         if let jsonPokemon = try? decoder.decode(Pokemon.self, from: json) {
+            print("DETAIL PARSING: ",jsonPokemon)
             species = jsonPokemon.species
             types = jsonPokemon.types
             sprites = jsonPokemon.sprites
             stats = jsonPokemon.stats
+            id = jsonPokemon.id
             
             pokemon = Pokemon(species: species!, types: types!, sprites: sprites!, stats: stats!)
             guard let urlFront = URL(string: (self.pokemon?.sprites.front_default)!) else {
@@ -153,6 +158,8 @@ class DetailViewController: UIViewController {
                         spAtkStat.textColor = accent
                         spDefStat.textColor = accent
                         speedStat.textColor = accent
+                        strategyButton.tintColor = accent
+                        numberLabel.textColor = accent
                         statView.backgroundColor = color
                     case .acceptableForLargeText:
                         appearance.titleTextAttributes = [.foregroundColor: accent]
@@ -182,6 +189,8 @@ class DetailViewController: UIViewController {
                         spAtkStat.textColor = accent
                         spDefStat.textColor = accent
                         speedStat.textColor = accent
+                        strategyButton.tintColor = accent
+                        numberLabel.textColor = accent
                         statView.backgroundColor = color
                     case .low:
                         appearance.titleTextAttributes = [.foregroundColor: accent.complementaryColor]
@@ -211,6 +220,8 @@ class DetailViewController: UIViewController {
                         spAtkStat.textColor = accent.complementaryColor
                         spDefStat.textColor = accent.complementaryColor
                         speedStat.textColor = accent.complementaryColor
+                        strategyButton.tintColor = accent.complementaryColor
+                        numberLabel.textColor = accent.complementaryColor
                         statView.backgroundColor = color
                     default:
                         appearance.titleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
@@ -233,6 +244,8 @@ class DetailViewController: UIViewController {
                         spAtkStat.textColor = color?.complementaryColor
                         spDefStat.textColor = color?.complementaryColor
                         speedStat.textColor = color?.complementaryColor
+                        strategyButton.tintColor = color?.complementaryColor
+                        numberLabel.textColor = color?.complementaryColor
                         statView.backgroundColor = color
                     }
                     
@@ -245,6 +258,7 @@ class DetailViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.title = self.pokemon!.species.name.capitalized
+                self.numberLabel.text = "#\(self.id!)"
                 self.typeTable.reloadData()
             }
         }
@@ -259,13 +273,20 @@ class DetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailToType" {
-            title = "Search"
+//            title = "Search"
+            print("DID WE GET HERE INSTEAD?")
             guard let vc = segue.destination as? TypesViewController,
                   let index = typeTable.indexPathForSelectedRow?.row
             else {
                 return
             }
             vc.type = typeArray[index]
+        }
+        if segue.identifier == "PokemonToStrategy" {
+            guard let vc = segue.destination as? StrategyViewController else { return }
+            vc.type = typeArray
+            vc.color = color
+            vc.view.backgroundColor = color
         }
     }
     
@@ -301,6 +322,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         vc!.type = typeArray[indexPath.row]
         vc!.color = color
         vc!.view.backgroundColor = color
+        print("DID WE GET A SEGUE")
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

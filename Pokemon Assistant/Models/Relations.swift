@@ -9,4 +9,5 @@ import Foundation
 
 struct Relations: Codable {
     var damage_relations: Effects
+//    var pokemon: PokemonStrategy
 }

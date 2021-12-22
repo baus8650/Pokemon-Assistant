@@ -19,6 +19,8 @@ class TypesViewController: UIViewController {
     var noEffect: [PokemonType]?
     var tableData = [[PokemonType]]()
     
+    var sendType: String?
+    
     var color: UIColor?
 
     var sections = [String]() 
@@ -27,6 +29,7 @@ class TypesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AT TYPES VIEW")
         navigationController?.isNavigationBarHidden = false
         effectTable.dataSource = self
         effectTable.delegate = self
@@ -36,6 +39,7 @@ class TypesViewController: UIViewController {
         view.backgroundColor = color
         effectTable.reloadData()
         performSelector(inBackground: #selector(fetchJSON), with: nil)
+        
     }
     
     @objc func fetchJSON() {
@@ -63,7 +67,9 @@ class TypesViewController: UIViewController {
             noEffect = jsonType.damage_relations.no_damage_to
             tableData = [weakTo!, strongAgainst!, halfResistant!, halfEffective!, fullyResistant!, noEffect!]
             sections = ["Weak To", "Strong Against", "Half Resistant To", "Half Effective To", "Fully Resistant To", "No Effect"]
+            print("WE PARSED")
             DispatchQueue.main.async { [self] in
+                
                 let appearance = UINavigationBarAppearance()
                 effectTable.reloadData()
                 appearance.titleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
@@ -81,9 +87,22 @@ class TypesViewController: UIViewController {
         present(ac,animated: true)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TypeToPokemon" {
+            print("AT OVERRIDE SEGUE")
+            guard let vc = segue.destination as? PokemonViewController
+            else {
+                return
+            }
+            vc.type = sendType!
+        }
+    }
+    
 }
 
 extension TypesViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -133,7 +152,19 @@ extension TypesViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.textColor = UIColor(named: "default")
         }
         
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        sendType = tableData[indexPath.section][indexPath.row].name
+        print("selected row")
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "StrategyPokemon") as? PokemonViewController
+        vc!.type = sendType
+        print("SEND TYPE",sendType)
+        vc!.color = color
+        vc!.view.backgroundColor = color
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     

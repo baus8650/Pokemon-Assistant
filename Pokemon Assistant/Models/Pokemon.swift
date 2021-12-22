@@ -13,5 +13,6 @@ struct Pokemon: Codable {
     var types: [Types]
     var sprites: Sprites
     var stats: [Stat]
+    var id: Int?
 //    var sprites: Sprites
 }
