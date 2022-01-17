@@ -56,17 +56,12 @@ class DetailViewController: UIViewController {
         typeArray = [String]()
         pokeSearch = String(prevID!)
         performSelector(inBackground: #selector(fetchJSON), with: nil)
-        
-//        self.typeTable.reloadData()
     }
     
     @IBAction func nextPressed(_ sender: Any) {
         typeArray = [String]()
         pokeSearch = String(nextID!)
         performSelector(inBackground: #selector(fetchJSON), with: nil)
-        self.typeTable.reloadData()
-        
-//        self.typeTable.reloadData()
     }
     
     
