@@ -17,6 +17,8 @@ class DetailViewController: UIViewController {
     var sprites: Sprites?
     var pokeSearch: String?
     var stats: [Stat]?
+    var nextID: Int?
+    var prevID: Int?
     var id: Int?
     
     @IBOutlet var hpSlider: UISlider!
@@ -48,6 +50,20 @@ class DetailViewController: UIViewController {
     var contrastRatio: UIColor.ContrastRatioResult?
     var color: UIColor?
     var typeArray = [String]()
+    
+    
+    @IBAction func previousPressed(_ sender: Any) {
+        typeArray = [String]()
+        pokeSearch = String(prevID!)
+        performSelector(inBackground: #selector(fetchJSON), with: nil)
+    }
+    
+    @IBAction func nextPressed(_ sender: Any) {
+        typeArray = [String]()
+        pokeSearch = String(nextID!)
+        performSelector(inBackground: #selector(fetchJSON), with: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +105,13 @@ class DetailViewController: UIViewController {
             sprites = jsonPokemon.sprites
             stats = jsonPokemon.stats
             id = jsonPokemon.id
+            if id == 1 {
+                nextID = id! + 1
+                prevID = id!
+            } else {
+                nextID = id! + 1
+                prevID = id! - 1
+            }
             
             pokemon = Pokemon(species: species!, types: types!, sprites: sprites!, stats: stats!)
             guard let urlFront = URL(string: (self.pokemon?.sprites.front_default)!) else {
@@ -279,7 +302,7 @@ class DetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailToType" {
-//            title = "Search"
+            //            title = "Search"
             
             guard let vc = segue.destination as? TypesViewController,
                   let index = typeTable.indexPathForSelectedRow?.row
