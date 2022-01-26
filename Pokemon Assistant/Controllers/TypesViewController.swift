@@ -10,20 +10,16 @@ import ColorKit
 
 class TypesViewController: UIViewController {
     
-    var type: String?
-    var weakTo: [PokemonType]?
-    var strongAgainst: [PokemonType]?
-    var halfResistant: [PokemonType]?
-    var halfEffective: [PokemonType]?
-    var fullyResistant: [PokemonType]?
-    var noEffect: [PokemonType]?
-    var tableData = [[PokemonType]]()
+    private var typeViewModel: TypeViewModel!
     
+    var type: String?
+    var pokemonType: Relations?
+    var tableData = [[PokemonType]]()
     var sendType: String?
+    var sections = [String]()
     
     var color: UIColor?
 
-    var sections = [String]() 
     
     @IBOutlet weak var effectTable: UITableView!
     
@@ -34,57 +30,83 @@ class TypesViewController: UIViewController {
         effectTable.delegate = self
         navigationController?.navigationBar.prefersLargeTitles = false
         title = type!.capitalized
-        effectTable.backgroundColor = color
-        view.backgroundColor = color
-        effectTable.reloadData()
-        performSelector(inBackground: #selector(fetchJSON), with: nil)
+//        effectTable.backgroundColor = color
+//        view.backgroundColor = color
+        
+//        pokemonType = Bundle.main.decode(for: type!, searchType: .type)
+//        performSelector(inBackground: #selector(fetchJSON), with: nil)
+        
+        typeViewModel = TypeViewModel(for: type ?? "normal")
+        
+        typeViewModel.getType(for: type ?? "normal")
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(goHome))
         
+        setUp()
+        
     }
+    
+    func setUp() {
+        typeViewModel.type.bind { [weak self] type in
+            self?.pokemonType = type
+        }
+        
+        typeViewModel.sections.bind { [weak self] sections in
+            self?.sections = sections
+            self?.effectTable.reloadData()
+        }
+        
+        typeViewModel.tableData.bind { [weak self] tableData in
+            self?.tableData = tableData
+//            self?.effectTable.reloadData()
+        }
+        
+        
+    }
+    
     
     @objc func goHome() {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    @objc func fetchJSON() {
-        let urlString: String
-        urlString = "https://pokeapi.co/api/v2/type/\(type ?? "normal")"
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                parse(json: data)
-
-                return
-            }
-        }
-        performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
-    }
-    
-    func parse(json: Data) {
-        let decoder = JSONDecoder()
-        
-        if let jsonType = try? decoder.decode(Relations.self, from: json) {
-            weakTo = jsonType.damage_relations.double_damage_from
-            strongAgainst = jsonType.damage_relations.double_damage_to
-            halfResistant = jsonType.damage_relations.half_damage_from
-            halfEffective = jsonType.damage_relations.half_damage_to
-            fullyResistant = jsonType.damage_relations.no_damage_from
-            noEffect = jsonType.damage_relations.no_damage_to
-            tableData = [weakTo!, strongAgainst!, halfResistant!, halfEffective!, fullyResistant!, noEffect!]
-            sections = ["Weak To", "Strong Against", "Half Resistant To", "Half Effective To", "Fully Resistant To", "No Effect"]
-            
-            DispatchQueue.main.async { [self] in
-                
-                let appearance = UINavigationBarAppearance()
-                effectTable.reloadData()
-                appearance.titleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
-                appearance.largeTitleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
-                self.navigationController?.navigationBar.tintColor = color?.complementaryColor
-                navigationItem.standardAppearance = appearance
-            }
-        }
-        
-    }
+//    @objc func fetchJSON() {
+//        let urlString: String
+//        urlString = "https://pokeapi.co/api/v2/type/\(type ?? "normal")"
+//        if let url = URL(string: urlString) {
+//            if let data = try? Data(contentsOf: url) {
+//                parse(json: data)
+//
+//                return
+//            }
+//        }
+//        performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
+//    }
+//
+//    func parse(json: Data) {
+//        let decoder = JSONDecoder()
+//
+//        if let jsonType = try? decoder.decode(Relations.self, from: json) {
+//            weakTo = jsonType.damage_relations.double_damage_from
+//            strongAgainst = jsonType.damage_relations.double_damage_to
+//            halfResistant = jsonType.damage_relations.half_damage_from
+//            halfEffective = jsonType.damage_relations.half_damage_to
+//            fullyResistant = jsonType.damage_relations.no_damage_from
+//            noEffect = jsonType.damage_relations.no_damage_to
+//            tableData = [weakTo!, strongAgainst!, halfResistant!, halfEffective!, fullyResistant!, noEffect!]
+//            sections = ["Weak To", "Strong Against", "Half Resistant To", "Half Effective To", "Fully Resistant To", "No Effect"]
+//
+//            DispatchQueue.main.async { [self] in
+//
+//                let appearance = UINavigationBarAppearance()
+//                effectTable.reloadData()
+//                appearance.titleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
+//                appearance.largeTitleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
+//                self.navigationController?.navigationBar.tintColor = color?.complementaryColor
+//                navigationItem.standardAppearance = appearance
+//            }
+//        }
+//
+//    }
     
     @objc func showError() {
         let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the data; please check your connection and try again.", preferredStyle: .alert)
@@ -120,19 +142,19 @@ extension TypesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
-        header.contentView.backgroundColor = color
+//        header.contentView.backgroundColor = color
         
-        switch color?.contrastRatio(with: (UIColor(named: "Color")!)) {
-        case .acceptable:
-            header.textLabel?.textColor = UIColor(named: "Color")
-        case .acceptableForLargeText:
-            header.textLabel?.textColor = UIColor(named: "Color")
-        case .low:
-            header.textLabel?.textColor = color?.complementaryColor
-            
-        default:
-            header.textLabel?.textColor = UIColor(named: "default")
-        }
+//        switch color?.contrastRatio(with: (UIColor(named: "Color")!)) {
+//        case .acceptable:
+//            header.textLabel?.textColor = UIColor(named: "Color")
+//        case .acceptableForLargeText:
+//            header.textLabel?.textColor = UIColor(named: "Color")
+//        case .low:
+//            header.textLabel?.textColor = color?.complementaryColor
+//
+//        default:
+//            header.textLabel?.textColor = UIColor(named: "default")
+//        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -144,18 +166,18 @@ extension TypesViewController: UITableViewDelegate, UITableViewDataSource {
         let typeName = tableData[indexPath.section][indexPath.row]
         cell.textLabel?.text = typeName.name.capitalized
         
-        switch color?.contrastRatio(with: (UIColor(named: "Color")!)) {
-        case .acceptable:
-            cell.textLabel?.textColor = UIColor(named: "Color")
-        case .acceptableForLargeText:
-            cell.textLabel?.textColor = UIColor(named: "Color")
-        case .low:
-            cell.textLabel?.textColor = color?.complementaryColor
-            tableView.separatorColor = color?.complementaryColor
-            
-        default:
-            cell.textLabel?.textColor = UIColor(named: "default")
-        }
+//        switch color?.contrastRatio(with: (UIColor(named: "Color")!)) {
+//        case .acceptable:
+//            cell.textLabel?.textColor = UIColor(named: "Color")
+//        case .acceptableForLargeText:
+//            cell.textLabel?.textColor = UIColor(named: "Color")
+//        case .low:
+//            cell.textLabel?.textColor = color?.complementaryColor
+//            tableView.separatorColor = color?.complementaryColor
+//
+//        default:
+//            cell.textLabel?.textColor = UIColor(named: "default")
+//        }
         
         
         return cell
@@ -167,8 +189,8 @@ extension TypesViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "StrategyPokemon") as? PokemonViewController
         vc!.type = sendType
         
-        vc!.color = color
-        vc!.view.backgroundColor = color
+//        vc!.color = color
+//        vc!.view.backgroundColor = color
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     

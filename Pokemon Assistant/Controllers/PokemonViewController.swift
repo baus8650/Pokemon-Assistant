@@ -21,8 +21,8 @@ class PokemonViewController: UITableViewController {
 
         navigationController?.navigationBar.prefersLargeTitles = false
         title = "\(type!.capitalized) Type Pokemon"
-        tableView.backgroundColor = color
-        view.backgroundColor = color
+//        tableView.backgroundColor = color
+//        view.backgroundColor = color
         performSelector(inBackground: #selector(fetchJSON), with: nil)
         self.clearsSelectionOnViewWillAppear = true
         
@@ -58,10 +58,10 @@ class PokemonViewController: UITableViewController {
             DispatchQueue.main.async { [self] in
                 let appearance = UINavigationBarAppearance()
 
-                appearance.titleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
-                appearance.largeTitleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
-                self.navigationController?.navigationBar.tintColor = color?.complementaryColor
-                navigationItem.standardAppearance = appearance
+//                appearance.titleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
+//                appearance.largeTitleTextAttributes = [.foregroundColor: color?.complementaryColor as Any]
+//                self.navigationController?.navigationBar.tintColor = color?.complementaryColor
+//                navigationItem.standardAppearance = appearance
                 tableView.reloadData()
             }
         }
@@ -88,7 +88,7 @@ class PokemonViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath)
 
-        cell.backgroundColor = color
+//        cell.backgroundColor = color
         let pokeName = attackPokemon[indexPath.row]
         cell.textLabel?.text = pokeName.pokemon.name?.capitalized
         // Configure the cell...
@@ -102,8 +102,8 @@ class PokemonViewController: UITableViewController {
         
         vc!.pokeSearch = name.pokemon.name?.lowercased()
 //
-        vc!.color = color
-        vc!.view.backgroundColor = color
+//        vc!.color = color
+//        vc!.view.backgroundColor = color
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 

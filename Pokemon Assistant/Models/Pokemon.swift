@@ -14,5 +14,19 @@ struct Pokemon: Codable {
     var sprites: Sprites
     var stats: [Stat]
     var id: Int?
-//    var sprites: Sprites
+
+}
+
+struct Species: Codable {
+    var name: String
+    var url: String
+}
+
+struct Sprites: Codable {
+    var front_default: String
+}
+
+struct Stat: Codable {
+    var base_stat: Int
+    var stat: [String: String]
 }

@@ -46,7 +46,7 @@ class StrategyViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = color
+//        tableView.backgroundColor = color
         title = "Attacking Strategy"
         performSelector(inBackground: #selector(fetchJSON), with: nil)
         
@@ -312,10 +312,10 @@ class StrategyViewController: UITableViewController {
         defCalculated = [fourTimes, twoTimes, dealsTwoTimes, half, dealsHalf, zero, dealsZero, neutral]
         tableSections = ["Receives 4x Damage From", "Receives 2x Damage From","Deals 2x Damage To", "Receives 1/2 Damage From","Deals 1/2 Damage To", "Receives 0 Damage From", "Deals 0 Damage To", "Neutral"]
         DispatchQueue.main.async {
-            self.appearance.titleTextAttributes = [.foregroundColor: self.color?.complementaryColor as Any]
-            self.appearance.largeTitleTextAttributes = [.foregroundColor: self.color?.complementaryColor as Any]
-            self.navigationController?.navigationBar.tintColor = self.color?.complementaryColor
-            self.navigationItem.standardAppearance = self.appearance
+//            self.appearance.titleTextAttributes = [.foregroundColor: self.color?.complementaryColor as Any]
+//            self.appearance.largeTitleTextAttributes = [.foregroundColor: self.color?.complementaryColor as Any]
+//            self.navigationController?.navigationBar.tintColor = self.color?.complementaryColor
+//            self.navigationItem.standardAppearance = self.appearance
             self.tableView.reloadData()
         }
     }
@@ -446,10 +446,10 @@ class StrategyViewController: UITableViewController {
         defCalculated = [fourTimes, twoTimes, dealsTwoTimes, half, dealsHalf, zero, dealsZero, neutral]
         tableSections = ["Receives 4x Damage From", "Receives 2x Damage From","Deals 2x Damage To", "Receives 1/2 Damage From","Deals 1/2 Damage To", "Receives 0 Damage From", "Deals 0 Damage To", "Neutral"]
         DispatchQueue.main.async {
-            self.appearance.titleTextAttributes = [.foregroundColor: self.color?.complementaryColor as Any]
-            self.appearance.largeTitleTextAttributes = [.foregroundColor: self.color?.complementaryColor as Any]
-            self.navigationController?.navigationBar.tintColor = self.color?.complementaryColor
-            self.navigationItem.standardAppearance = self.appearance
+//            self.appearance.titleTextAttributes = [.foregroundColor: self.color?.complementaryColor as Any]
+//            self.appearance.largeTitleTextAttributes = [.foregroundColor: self.color?.complementaryColor as Any]
+//            self.navigationController?.navigationBar.tintColor = self.color?.complementaryColor
+//            self.navigationItem.standardAppearance = self.appearance
             self.tableView.reloadData()
         }
     }
@@ -491,19 +491,19 @@ class StrategyViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
-        header.contentView.backgroundColor = color
-        
-        switch color?.contrastRatio(with: (UIColor(named: "Color")!)) {
-        case .acceptable:
-            header.textLabel?.textColor = UIColor(named: "Color")
-        case .acceptableForLargeText:
-            header.textLabel?.textColor = UIColor(named: "Color")
-        case .low:
-            header.textLabel?.textColor = color?.complementaryColor
-            
-        default:
-            header.textLabel?.textColor = UIColor(named: "default")
-        }
+//        header.contentView.backgroundColor = color
+//
+//        switch color?.contrastRatio(with: (UIColor(named: "Color")!)) {
+//        case .acceptable:
+//            header.textLabel?.textColor = UIColor(named: "Color")
+//        case .acceptableForLargeText:
+//            header.textLabel?.textColor = UIColor(named: "Color")
+//        case .low:
+//            header.textLabel?.textColor = color?.complementaryColor
+//
+//        default:
+//            header.textLabel?.textColor = UIColor(named: "default")
+//        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -511,19 +511,19 @@ class StrategyViewController: UITableViewController {
         
         let typeName = defCalculated[indexPath.section][indexPath.row]
         cell.textLabel?.text = typeName.capitalized
-        cell.backgroundColor = color
-        switch color?.contrastRatio(with: (UIColor(named: "Color")!)) {
-        case .acceptable:
-            cell.textLabel?.textColor = UIColor(named: "Color")
-        case .acceptableForLargeText:
-            cell.textLabel?.textColor = UIColor(named: "Color")
-        case .low:
-            cell.textLabel?.textColor = color?.complementaryColor
-            tableView.separatorColor = color?.complementaryColor
-
-        default:
-            cell.textLabel?.textColor = UIColor(named: "default")
-        }
+//        cell.backgroundColor = color
+//        switch color?.contrastRatio(with: (UIColor(named: "Color")!)) {
+//        case .acceptable:
+//            cell.textLabel?.textColor = UIColor(named: "Color")
+//        case .acceptableForLargeText:
+//            cell.textLabel?.textColor = UIColor(named: "Color")
+//        case .low:
+//            cell.textLabel?.textColor = color?.complementaryColor
+//            tableView.separatorColor = color?.complementaryColor
+//
+//        default:
+//            cell.textLabel?.textColor = UIColor(named: "default")
+//        }
         
         return cell
 
@@ -533,8 +533,8 @@ class StrategyViewController: UITableViewController {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "StrategyPokemon") as? PokemonViewController
         vc!.type = defCalculated[indexPath.section][indexPath.row].lowercased()
         sendType = defCalculated[indexPath.section][indexPath.row]
-        vc!.color = color
-        vc!.view.backgroundColor = color
+//        vc!.color = color
+//        vc!.view.backgroundColor = color
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 

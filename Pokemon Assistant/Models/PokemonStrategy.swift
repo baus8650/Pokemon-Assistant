@@ -8,7 +8,14 @@
 import Foundation
 
 struct PokemonStrategy: Codable {
-    
     var pokemon: [AttackPokemon]
+}
 
+struct AttackPokemon: Codable {
+    var pokemon: SpecificPokemon
+}
+
+struct SpecificPokemon: Codable {
+    var name: String?
+    var url: String?
 }
