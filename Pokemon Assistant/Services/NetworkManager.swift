@@ -7,57 +7,6 @@
 
 import Foundation
 
-//extension Bundle {
-//
-//    enum searchType {
-//        case pokemon
-//        case type
-//    }
-//
-//    func decode<T: Decodable>(for search: String?, searchType: searchType) -> T {
-//
-//        var urlString: String
-//        switch searchType {
-//        case .pokemon:
-//            let pokemonViewModel = PokemonViewModel(for: search ?? "charmander")
-//            urlString = "https://pokeapi.co/api/v2/pokemon/\(search ?? "charmander")"
-//            let url = URL(string: urlString)!
-//
-//            guard let data = try? Data(contentsOf: url) else {
-//                fatalError("Failed to load projects.json in app bundle.")
-//            }
-//
-//            let decoder = JSONDecoder()
-//
-//            guard let loaded = try? decoder.decode(T.self, from: data) else {
-//                fatalError("Failed to decode projects.json from app bundle.")
-//            }
-//
-//            pokemonViewModel.pokemon?.value = loaded as! Pokemon
-//            return loaded
-//        case .type:
-//            let typeViewModel = TypeViewModel()
-//            urlString = "https://pokeapi.co/api/v2/type/\(search ?? "normal")"
-//            let url = URL(string: urlString)!
-//
-//            guard let data = try? Data(contentsOf: url) else {
-//                fatalError("Failed to load projects.json in app bundle.")
-//            }
-//
-//            let decoder = JSONDecoder()
-//
-//            guard let loaded = try? decoder.decode(T.self, from: data) else {
-//                fatalError("Failed to decode projects.json from app bundle.")
-//            }
-//
-//            typeViewModel.type?.value = loaded as! Relations
-//
-//            return loaded
-//        }
-//
-//    }
-//}
-
 class PokemonRequest:  NSObject {
     
     private var pokeSearch: String

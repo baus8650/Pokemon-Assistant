@@ -100,10 +100,10 @@
 		229D6E58276C0CED00583DB5 /* Pokemon Assistant */ = {
 			isa = PBXGroup;
 			children = (
-				22DF69BC2795E92300544587 /* ViewModels */,
-				22DF69B92795DEDE00544587 /* Services */,
 				229D6E59276C0CED00583DB5 /* AppDelegate.swift */,
 				229D6E5B276C0CED00583DB5 /* SceneDelegate.swift */,
+				22DF69BC2795E92300544587 /* ViewModels */,
+				22DF69B92795DEDE00544587 /* Services */,
 				22D97EA2276DA56D0029F2B9 /* Models */,
 				22D97EA3276DA57E0029F2B9 /* Controllers */,
 				2238FECA27977DF500B165AD /* Views */,
