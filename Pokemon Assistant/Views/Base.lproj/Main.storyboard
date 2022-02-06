@@ -53,6 +53,34 @@
                                     <segue destination="eTp-FD-q7U" kind="show" identifier="TypeToType" id="lnT-Iw-a1M"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TPX-uf-0Fi">
+                                <rect key="frame" x="89" y="232" width="236" height="157"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="236" id="4X4-Si-HEH"/>
+                                    <constraint firstAttribute="height" constant="157" id="VcV-6X-wkS"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokemonCell" textLabel="YHi-Zz-6IX" style="IBUITableViewCellStyleDefault" id="dTf-c0-xQD">
+                                        <rect key="frame" x="0.0" y="44.5" width="236" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dTf-c0-xQD" id="dZr-QZ-9RD">
+                                            <rect key="frame" x="0.0" y="0.0" width="236" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YHi-Zz-6IX">
+                                                    <rect key="frame" x="16" y="0.0" width="204" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -71,10 +99,13 @@
                             <constraint firstItem="Ess-s5-qAR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fzx-vA-1vC"/>
                             <constraint firstAttribute="trailing" secondItem="Ess-s5-qAR" secondAttribute="trailing" id="hng-xZ-wga"/>
                             <constraint firstItem="hv3-n0-W6H" firstAttribute="top" secondItem="FFY-hu-Fb6" secondAttribute="bottom" constant="8" symbolic="YES" id="k8I-an-cdI"/>
+                            <constraint firstItem="TPX-uf-0Fi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m3P-cR-RDe"/>
+                            <constraint firstItem="TPX-uf-0Fi" firstAttribute="top" secondItem="SdV-9h-KxZ" secondAttribute="bottom" constant="5" id="rJ6-PZ-myG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5vP-pl-i0S"/>
                     <connections>
+                        <outlet property="pokemonTable" destination="TPX-uf-0Fi" id="Ujd-Ts-oyZ"/>
                         <outlet property="searchField" destination="SdV-9h-KxZ" id="sOw-x8-2GA"/>
                         <outlet property="searchType" destination="FFY-hu-Fb6" id="IfZ-8K-xCF"/>
                     </connections>
@@ -362,7 +393,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="3Li-6J-hvC"/>
-        <segue reference="eMt-Aa-YfQ"/>
+        <segue reference="lnT-Iw-a1M"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="background" width="834" height="1194"/>

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ColorKit
 import Charts
 
 class DetailViewController: UIViewController {
@@ -35,7 +34,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet var strategyButton: UIButton!
     @IBOutlet var numberLabel: UILabel!
-    var contrastRatio: UIColor.ContrastRatioResult?
+    
     var color: UIColor?
     var typeArray = [String]()
     

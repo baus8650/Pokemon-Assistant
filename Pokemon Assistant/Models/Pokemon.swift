@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct AllPokemon: Codable {
+    var results: [Species]
+}
+
 struct Pokemon: Codable {
     
     var species: Species

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ColorKit
 
 class TypesViewController: UIViewController {
     

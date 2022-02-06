@@ -54,7 +54,6 @@ class PokemonViewController: UITableViewController {
             
 
             DispatchQueue.main.async { [self] in
-                let appearance = UINavigationBarAppearance()
                 tableView.reloadData()
             }
         }

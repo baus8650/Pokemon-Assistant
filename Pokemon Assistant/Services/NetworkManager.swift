@@ -65,6 +65,47 @@ class PokemonRequest:  NSObject {
         }.resume()
     }
     
+    func fetchAllPokemon(completion: @escaping (AllPokemon) -> Void) {
+        URLSession.shared.dataTask(with: URL(string: "https://pokeapi.co/api/v2/pokemon/?limit=1500")!) { (data, response, error) in
+            DispatchQueue.main.async {
+                
+//                guard error == nil else {
+//                    print("Failed to fetch Pokémon: \(error!.localizedDescription)")
+//                    completion(nil, .failedRequest)
+//                    return
+//                }
+                
+                guard let data = data else {
+//                    print("No data returned from pokeAPI")
+//                    completion(nil, .noData)
+                    return
+                }
+                
+//                guard let response = response as? HTTPURLResponse else {
+//                  print("Unable to process Pokémon response")
+//                  completion(nil, .invalidResponse)
+//                  return
+//                }
+                
+//                guard response.statusCode == 200 else {
+//                  print("Failure response from pokeAPI: \(response.statusCode)")
+//                  completion(nil, .failedRequest)
+//                  return
+//                }
+                
+                do {
+                    let decoder = JSONDecoder()
+//                    print("DID WE GET HERE")
+                    let pokemonData: AllPokemon = try decoder.decode(AllPokemon.self, from: data)
+                    completion(pokemonData)
+                } catch {
+                    print("Unable to decode Pokémon response: \(error.localizedDescription)")
+//                    completion(nil, .invalidData)
+                }
+            }
+        }.resume()
+    }
+    
 }
 
 class TypeRequest:  NSObject {

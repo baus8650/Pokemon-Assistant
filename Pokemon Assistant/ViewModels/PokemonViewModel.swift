@@ -12,6 +12,7 @@ import Charts
 public class PokemonViewModel {
     
     let pokemon: Box<Pokemon?> = Box(nil)
+    let allPokemon: Box<AllPokemon?> = Box(nil)
     let pokeRequest: PokemonRequest?
     let title = Box("")
     
@@ -25,6 +26,14 @@ public class PokemonViewModel {
     
     init(for pokeSearch: String) {
         pokeRequest = PokemonRequest(for: pokeSearch)
+    }
+    
+    func getAllPokemon() {
+        pokeRequest?.fetchAllPokemon(completion: { [weak self]  (pokemonData) in
+//            guard let self = self, let pokemonData = pokemonData else { return }
+            self?.allPokemon.value = pokemonData
+//            print("FROM VIEW MODEL ALL: \(pokemonData)")
+        })
     }
     
     func getPokemon(for pokeSearch: String) {

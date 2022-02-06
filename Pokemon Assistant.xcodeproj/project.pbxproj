@@ -27,7 +27,6 @@
 		22DF69BE2795E92F00544587 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DF69BD2795E92F00544587 /* PokemonViewModel.swift */; };
 		22DF69C02795F14900544587 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DF69BF2795F14900544587 /* Box.swift */; };
 		22DF69C22795F74600544587 /* TypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DF69C12795F74600544587 /* TypeViewModel.swift */; };
-		22EDB9262770011D00A0C1F0 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 22EDB9252770011D00A0C1F0 /* ColorKit */; };
 		22FC651D276C600800A7A526 /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC651C276C600800A7A526 /* TypesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +61,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22EDB9262770011D00A0C1F0 /* ColorKit in Frameworks */,
 				229724A227705BA8002B050D /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,7 +170,6 @@
 			);
 			name = "Pokemon Assistant";
 			packageProductDependencies = (
-				22EDB9252770011D00A0C1F0 /* ColorKit */,
 				229724A127705BA8002B050D /* Charts */,
 			);
 			productName = "Pokemon Assistant";
@@ -204,7 +201,6 @@
 			);
 			mainGroup = 229D6E4D276C0CED00583DB5;
 			packageReferences = (
-				22EDB9242770011D00A0C1F0 /* XCRemoteSwiftPackageReference "ColorKit" */,
 				229724A027705BA8002B050D /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 229D6E57276C0CED00583DB5 /* Products */;
@@ -405,15 +401,15 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.timbausch.Pokemon-Assistant";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.timbausch.Pokemon-Assistant-AdHoc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -434,15 +430,15 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.timbausch.Pokemon-Assistant";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.timbausch.Pokemon-Assistant-AdHoc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -482,14 +478,6 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		22EDB9242770011D00A0C1F0 /* XCRemoteSwiftPackageReference "ColorKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Boris-Em/ColorKit.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -497,11 +485,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 229724A027705BA8002B050D /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
-		};
-		22EDB9252770011D00A0C1F0 /* ColorKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 22EDB9242770011D00A0C1F0 /* XCRemoteSwiftPackageReference "ColorKit" */;
-			productName = ColorKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
