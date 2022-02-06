@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
     var nextID: Int?
     var prevID: Int?
     var id: Int?
+    var number: String?
     
     private var barChartTest: StatBarChart!
     
@@ -80,7 +81,8 @@ class DetailViewController: UIViewController {
         }
         
         pokemonViewModel.numberLabel.bind { [weak self] numberLabel in
-            self?.numberLabel.text = numberLabel
+            self?.number = numberLabel
+//            self?.numberLabel.text = numberLabel
         }
         
         pokemonViewModel.nextID.bind { [weak self] nextID in
@@ -96,7 +98,8 @@ class DetailViewController: UIViewController {
         }
         
         pokemonViewModel.title.bind { [weak self] name in
-            self?.title = name
+            
+            self?.title = "\(name) \((self?.number)!)"
         }
         
         pokemonViewModel.types.bind { [weak self] types in

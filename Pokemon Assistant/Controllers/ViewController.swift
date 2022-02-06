@@ -139,6 +139,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         searchType.text = ""
         searchField.text = ""
         isSearching = false
+        searchField.resignFirstResponder()
         searchResults = [String]()
     }
     
