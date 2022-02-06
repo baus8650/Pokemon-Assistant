@@ -134,7 +134,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="i0x-rq-KAk">
-                                <rect key="frame" x="20" y="368" width="350" height="150"/>
+                                <rect key="frame" x="20" y="404" width="350" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="9a4-0x-IVw"/>
@@ -181,7 +181,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By2-Xe-Zpi">
-                                <rect key="frame" x="5" y="328" width="100.66666666666667" height="31"/>
+                                <rect key="frame" x="5" y="353" width="100.66666666666667" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title="  Previous"/>
                                 <connections>
@@ -189,7 +189,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjg-JJ-Gfk">
-                                <rect key="frame" x="314" y="328" width="71" height="31"/>
+                                <rect key="frame" x="314" y="353" width="71" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" imagePlacement="trailing" title="Next " titleAlignment="trailing"/>
                                 <connections>
@@ -200,16 +200,16 @@
                         <viewLayoutGuide key="safeArea" id="kwl-zz-MNr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="By2-Xe-Zpi" firstAttribute="top" secondItem="gKv-lW-Oud" secondAttribute="bottom" constant="-20" id="1pb-73-BbV"/>
+                            <constraint firstItem="By2-Xe-Zpi" firstAttribute="top" secondItem="gKv-lW-Oud" secondAttribute="bottom" constant="5" id="1pb-73-BbV"/>
                             <constraint firstItem="kwl-zz-MNr" firstAttribute="trailing" secondItem="Zjg-JJ-Gfk" secondAttribute="trailing" constant="5" id="4kl-SW-oBM"/>
                             <constraint firstItem="O2T-lB-Lla" firstAttribute="centerX" secondItem="kwl-zz-MNr" secondAttribute="centerX" id="Hpx-uv-RrW"/>
                             <constraint firstItem="IsV-aC-AAK" firstAttribute="leading" secondItem="kwl-zz-MNr" secondAttribute="leading" id="LKL-Q1-qBj"/>
                             <constraint firstItem="ZSN-to-v7E" firstAttribute="centerX" secondItem="kwl-zz-MNr" secondAttribute="centerX" id="QAv-QP-4mt"/>
                             <constraint firstItem="i0x-rq-KAk" firstAttribute="centerX" secondItem="kwl-zz-MNr" secondAttribute="centerX" id="S2M-tO-mzO"/>
-                            <constraint firstItem="i0x-rq-KAk" firstAttribute="top" secondItem="ZSN-to-v7E" secondAttribute="bottom" id="WBC-rx-TWm"/>
+                            <constraint firstItem="i0x-rq-KAk" firstAttribute="top" secondItem="Zjg-JJ-Gfk" secondAttribute="bottom" constant="20" id="WBC-rx-TWm"/>
                             <constraint firstItem="By2-Xe-Zpi" firstAttribute="leading" secondItem="kwl-zz-MNr" secondAttribute="leading" constant="5" id="b2G-yG-zib"/>
                             <constraint firstItem="IsV-aC-AAK" firstAttribute="top" secondItem="O2T-lB-Lla" secondAttribute="bottom" constant="5" id="h4G-mV-q2E"/>
-                            <constraint firstItem="Zjg-JJ-Gfk" firstAttribute="top" secondItem="gKv-lW-Oud" secondAttribute="bottom" constant="-20" id="iM3-by-SEz"/>
+                            <constraint firstItem="Zjg-JJ-Gfk" firstAttribute="top" secondItem="gKv-lW-Oud" secondAttribute="bottom" constant="5" id="iM3-by-SEz"/>
                             <constraint firstItem="kwl-zz-MNr" firstAttribute="trailing" secondItem="IsV-aC-AAK" secondAttribute="trailing" constant="25" id="jTF-a3-kvX"/>
                             <constraint firstItem="kwl-zz-MNr" firstAttribute="bottom" secondItem="IsV-aC-AAK" secondAttribute="bottom" id="lp4-aR-Uso"/>
                             <constraint firstItem="ZSN-to-v7E" firstAttribute="top" secondItem="gKv-lW-Oud" secondAttribute="bottom" constant="20" id="oWe-mB-RTp"/>

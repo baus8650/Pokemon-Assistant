@@ -48,6 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         if isSearching! {
             pokeSearch = searchResults[indexPath.row].lowercased()
             performSegue(withIdentifier: "SearchToDetail", sender: pokeSearch!)
+            resignFirstResponder()
         }
     }
     
@@ -99,21 +100,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
+        if textField.tag == 0 {
+            var searchText  = textField.text! + string
 
-        var searchText  = textField.text! + string
+            if string  == "" {
+                searchText = (searchText as String).substring(to: searchText.index(before: searchText.endIndex))
+            }
 
-        if string  == "" {
-            searchText = (searchText as String).substring(to: searchText.index(before: searchText.endIndex))
+            if searchText == "" {
+                isSearching = false
+                pokemonTable.reloadData()
+            }
+            else{
+                getSearchArrayContains(searchText)
+            }
+            print("SEARCH TEXT: ",searchText)
         }
-
-        if searchText == "" {
-            isSearching = false
-            pokemonTable.reloadData()
-        }
-        else{
-            getSearchArrayContains(searchText)
-        }
-        print("SEARCH TEXT: ",searchText)
 
         return true
     }
@@ -143,7 +145,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         searchType.text = ""
         searchField.text = ""
         isSearching = false
-        searchField.resignFirstResponder()
+        resignFirstResponder()
         searchResults = [String]()
     }
     
