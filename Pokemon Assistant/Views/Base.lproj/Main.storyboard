@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LlV-qU-Awj">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,23 +14,20 @@
             <objects>
                 <viewController title="Search" id="BYZ-38-t0r" customClass="ViewController" customModule="Pokemon_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Ess-s5-qAR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="896" id="5ya-Fi-vDn"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Pokémon name or number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SdV-9h-KxZ">
-                                <rect key="frame" x="89" y="193" width="236" height="34"/>
+                                <rect key="frame" x="77" y="193" width="236" height="34"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReP-Mf-T1h">
-                                <rect key="frame" x="140.5" y="235" width="133" height="31"/>
+                                <rect key="frame" x="128.66666666666666" y="235" width="132.99999999999997" height="31"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Search Pokemon"/>
@@ -39,13 +36,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FFY-hu-Fb6">
-                                <rect key="frame" x="143.5" y="283" width="127.5" height="34"/>
+                                <rect key="frame" x="131.33333333333334" y="283" width="127.33333333333334" height="34"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hv3-n0-W6H">
-                                <rect key="frame" x="155" y="325" width="104.5" height="31"/>
+                                <rect key="frame" x="142.66666666666666" y="325" width="104.66666666666666" height="31"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Search Type"/>
@@ -54,7 +51,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TPX-uf-0Fi">
-                                <rect key="frame" x="89" y="232" width="236" height="157"/>
+                                <rect key="frame" x="77" y="232" width="236" height="157"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="236" id="4X4-Si-HEH"/>
@@ -62,14 +59,14 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokemonCell" textLabel="YHi-Zz-6IX" style="IBUITableViewCellStyleDefault" id="dTf-c0-xQD">
-                                        <rect key="frame" x="0.0" y="44.5" width="236" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="236" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dTf-c0-xQD" id="dZr-QZ-9RD">
-                                            <rect key="frame" x="0.0" y="0.0" width="236" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="236" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YHi-Zz-6IX">
-                                                    <rect key="frame" x="16" y="0.0" width="204" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="204" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -119,25 +116,25 @@
             <objects>
                 <viewController storyboardIdentifier="DetailView" id="Aqy-lz-BoB" customClass="DetailViewController" customModule="Pokemon_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BVq-1y-mvU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gKv-lW-Oud">
-                                <rect key="frame" x="117" y="88" width="180" height="180"/>
+                                <rect key="frame" x="65" y="88" width="260" height="260"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="y1r-W1-kwB"/>
-                                    <constraint firstAttribute="width" constant="180" id="yvk-Uu-xnO"/>
+                                    <constraint firstAttribute="width" constant="260" id="DWu-Qk-Naf"/>
+                                    <constraint firstAttribute="height" constant="260" id="HqL-Xt-FQR"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IsV-aC-AAK" customClass="HorizontalBarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="627" width="389" height="235"/>
+                                <rect key="frame" x="0.0" y="575" width="365" height="235"/>
                                 <color key="backgroundColor" white="1" alpha="0.74683779761904767" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="235" id="BCh-4x-3BI"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="i0x-rq-KAk">
-                                <rect key="frame" x="32" y="288" width="350" height="150"/>
+                                <rect key="frame" x="20" y="368" width="350" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="9a4-0x-IVw"/>
@@ -146,14 +143,14 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TypeCell" textLabel="dvC-hj-jWH" style="IBUITableViewCellStyleDefault" id="vct-wi-Ojq">
-                                        <rect key="frame" x="0.0" y="44.5" width="350" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="350" height="47.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vct-wi-Ojq" id="OFs-Rf-KlQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="321.5" height="47.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="321.33333333333331" height="47.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dvC-hj-jWH">
-                                                    <rect key="frame" x="20" y="0.0" width="293.5" height="47.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="293.33333333333331" height="47.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" name="Color"/>
@@ -167,7 +164,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2T-lB-Lla">
-                                <rect key="frame" x="105" y="584" width="204" height="38"/>
+                                <rect key="frame" x="93" y="532" width="204" height="38"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.012242017237580782" alpha="0.18051126700680273" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" imagePlacement="trailing" title="Attacking Strategy ">
@@ -178,13 +175,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSN-to-v7E">
-                                <rect key="frame" x="207" y="288" width="0.0" height="0.0"/>
+                                <rect key="frame" x="195" y="368" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By2-Xe-Zpi">
-                                <rect key="frame" x="5" y="248" width="100.5" height="31"/>
+                                <rect key="frame" x="5" y="328" width="100.66666666666667" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title="  Previous"/>
                                 <connections>
@@ -192,7 +189,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjg-JJ-Gfk">
-                                <rect key="frame" x="338" y="248" width="71" height="31"/>
+                                <rect key="frame" x="314" y="328" width="71" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" imagePlacement="trailing" title="Next " titleAlignment="trailing"/>
                                 <connections>
@@ -240,22 +237,22 @@
             <objects>
                 <viewController storyboardIdentifier="TypesController" id="eTp-FD-q7U" customClass="TypesViewController" customModule="Pokemon_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yw7-Xc-416">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="A6h-3f-Kst">
-                                <rect key="frame" x="20" y="88" width="374" height="774"/>
+                                <rect key="frame" x="20" y="88" width="350" height="722"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Relations" textLabel="cyB-6c-KvN" style="IBUITableViewCellStyleDefault" id="BMx-jc-FT9">
-                                        <rect key="frame" x="0.0" y="49.5" width="374" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="49" width="350" height="47.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BMx-jc-FT9" id="272-BM-9ky">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="47.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="47.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cyB-6c-KvN">
-                                                    <rect key="frame" x="20" y="0.0" width="334" height="47.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="310" height="47.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -295,19 +292,19 @@
             <objects>
                 <tableViewController title="Strategy" id="EO4-ee-cKq" customClass="StrategyViewController" customModule="Pokemon_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="B9q-4e-jc5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="StrategyCell" textLabel="vo8-Te-geE" style="IBUITableViewCellStyleDefault" id="cnl-3l-tQ4">
-                                <rect key="frame" x="0.0" y="49.5" width="414" height="47.5"/>
+                                <rect key="frame" x="0.0" y="49" width="390" height="47.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cnl-3l-tQ4" id="Mgx-Ir-TtC">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="47.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vo8-Te-geE">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="47.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="350" height="47.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -341,7 +338,7 @@
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="J7m-IG-TDN">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -358,19 +355,19 @@
             <objects>
                 <tableViewController storyboardIdentifier="StrategyPokemon" title="Pokemon" id="Fjt-9S-Naf" customClass="PokemonViewController" customModule="Pokemon_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" id="DBA-aC-Azb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokemonCell" textLabel="sr4-0T-Qbh" style="IBUITableViewCellStyleDefault" id="Rew-bk-ksS">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="47.5"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="47.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rew-bk-ksS" id="j1m-PH-dev">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="47.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sr4-0T-Qbh">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="47.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="350" height="47.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -399,7 +396,7 @@
         <segue reference="eMt-Aa-YfQ"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="background" width="834" height="1194"/>
+        <image name="background" width="556" height="796"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <namedColor name="Color">

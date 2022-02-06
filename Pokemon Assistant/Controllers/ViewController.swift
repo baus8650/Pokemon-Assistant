@@ -119,14 +119,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     }
     
     func getSearchArrayContains(_ text : String) {
+        if text.isInt == false {
         var predicate : NSPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", text)
         searchResults = (allPokemon as NSArray).filtered(using: predicate) as! [String]
         isSearching = true
         pokemonTable.reloadData()
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        isSearching = false
         if textField.tag == 0 {
+            print("TEST SELF",self)
             performSegue(withIdentifier: "SearchToDetail", sender: self)
         } else if textField.tag == 1 {
             performSegue(withIdentifier: "TypeToType", sender: self)
@@ -147,7 +151,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
         if segue.identifier == "SearchToDetail" {
             self.navigationItem.title = "Search"
             let vc = segue.destination as! DetailViewController
-            if self.pokeSearch == sender as! String {
+            if isSearching == true {
                 vc.pokeSearch = sender as! String
             } else {
                 vc.pokeSearch = searchField.text?.lowercased()
@@ -164,3 +168,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDataSour
     
 }
 
+
+extension String {
+    var isInt: Bool {
+        return Int(self) != nil
+    }
+}
