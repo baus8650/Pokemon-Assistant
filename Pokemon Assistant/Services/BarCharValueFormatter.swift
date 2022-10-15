@@ -8,7 +8,7 @@
 import Foundation
 import Charts
 
-class BarCharValueFormatter: NSObject, IValueFormatter{
+class BarCharValueFormatter: NSObject, ValueFormatter{
     public func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
         let correctValue = Int(value)
         return String(correctValue)

@@ -52,7 +52,7 @@ public class PokemonViewModel {
             for i in 0..<reverseIndex.count {
                 dataEntries.append(BarChartDataEntry(x: Double(i), y: Double(pokemonData.stats[reverseIndex[i]].base_stat)))
             }
-            self.stats.value = BarChartDataSet(entries: dataEntries, label: nil)
+            self.stats.value = BarChartDataSet(entries: dataEntries, label: "")
             if pokemonData.id! == 1 {
                 self.nextID.value = pokemonData.id! + 1
                 self.prevID.value = pokemonData.id!

@@ -8,7 +8,7 @@
 import Foundation
 import Charts
 
-class BarChartXAxisFormatter: NSObject, IAxisValueFormatter {
+class BarChartXAxisFormatter: NSObject, AxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         let labels = ["Speed", "Sp. Defense", "Sp. Attack", "Defense", "Attack", "HP"]
         return labels[Int(value)]
